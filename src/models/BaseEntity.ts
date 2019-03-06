@@ -205,7 +205,7 @@ export default class BaseEntity<S extends { _id: string }> {
     })
   }
 
-  protected getProp(key: string) {
+  protected getProp(key: keyof S | string) {
     return (this as any)[key]
   }
 

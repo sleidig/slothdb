@@ -21,7 +21,9 @@ import getProtoData from '../utils/getProtoData'
  * @param propsKeys key names to pick from the document
  * @typeparam S the document schema
  */
-export default function SlothURI<S>(prefix: string, ...propsKeys: (keyof S)[]) {
+export default function SlothURI<S>(prefix: string, ...propsKeysS: (keyof S)[]) {
+  let propsKeys = propsKeysS as string[];
+
   return (target: object, key: string) => {
     const desc = Reflect.getOwnPropertyDescriptor(target, key)
 
